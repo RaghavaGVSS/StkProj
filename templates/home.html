@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="icon" href="static\css\icon.svg"/>
+<link rel="stylesheet"  type="text/css" href= "static\css\home.css">
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+<meta name="viewport" content="width=device-width", initial-scale=1.0">
+</head>
+<body style="background-color:black;color:white">
+{% extends "base.html" %}
+{% block content %}
+<h3 style="color:violet;"><marquee>  We let your stocks increase </marquee></h3>
+
+
+<canvas id="chart" width=1500% height="400"></canvas>
+<script>
+    var ctx= document.getElementById("chart").getContext("2d");
+    var chart = new Chart(ctx, {
+    type: "line",
+    data: {
+            labels: {{ labels | safe }},
+            datasets: [
+            {
+                label: "Data Points",
+                data: {{ values | safe }},
+                fill:false,
+                borderColor: "rgb(75, 192, 192)",
+                lineTension: 0.1
+            }
+      ]
+      },
+      options: {
+<!--      responsive: false-->
+      }
+     });
+</script>
+
+
+
+<br>
+<table >
+    <tr>
+  <th>Company&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>LTP&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>Change(%)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>Volume&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>Buy Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+   <th>Sell Price&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>Buy Qty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+  <th>Sell Qty&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+    </tr>
+
+    <tr>
+    <td><a href="/stock/stat1">Asian Paints</a></td>
+    <td>2,815.20</td>
+    <td>1.17</td>
+    <td>41249</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+
+    <tr>
+    <td><a href="/stock/axis"> Axis Bank </a></td>
+    <td>711.90</td>
+    <td>0.37</td>
+    <td>415913</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+    <tr>
+    <td><a href="/stock/bauto"> Bajaj Auto </a></td>
+    <td>4,065.55</td>
+    <td>5.17</td>
+    <td>110778</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/tesla">Tesla </a></td>
+    <td>2,415.20</td>
+    <td>2.15</td>
+    <td>59249</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/bfin">Bajaj Finance </a></td>
+    <td>5,687.20</td>
+    <td>4.80</td>
+    <td>41249</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/bfser">Bajaj Finserv </a></td>
+    <td>11,335.00	</td>
+    <td>0.78</td>
+    <td>14082</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/air" style="color:red"> Bharti Airtel </a></td>
+    <td>563.36</td>
+    <td>-2.41</td>
+    <td>1194210</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/dr" style="color:red"> Dr Reddys Labs </a></td>
+    <td>5,215.30</td>
+    <td>-0.68</td>
+    <td>65497</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/hcl">HCL Tech </a></td>
+    <td>931.55</td>
+    <td>1.17</td>
+    <td>204422</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/hdfc">HDFC </a></td>
+    <td>2,500.00</td>
+    <td>0.57</td>
+    <td>90499</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+
+    <tr>
+    <td><a href="/stock/apple">Apple </a></td>
+    <td>1,477.00</td>
+    <td>2.57</td>
+    <td>251625</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/icici"> ICICI Bank </a> </td>
+    <td>633.10</td>
+    <td>1.52</td>
+    <td>631543</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/ind"> IndusInd Bank </a></td>
+    <td>974.50</td>
+    <td>1.91</td>
+    <td>293878</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/info"> Infosys </a></td>
+    <td>1,339.95</td>
+    <td>0.81</td>
+    <td>310214</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/itc" style="color:red">ITC </a></td>
+    <td>210.05</td>
+    <td>-1.18</td>
+    <td>952823</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="stock/tcs"> TCS</a></td>
+    <td>3,089.35</td>
+    <td>0.64</td>
+    <td>71234</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+</tr>
+    <tr>
+    <td><a href="/stock/tech"> Tech Mahindra </a></td>
+    <td>968.65</td>
+    <td>1.57</td>
+    <td>120415</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    <td>0.00</td>
+    </tr>
+
+
+</table>
+
+<!--<img src="static\images\1.jpg"-->
+<!--alt="Stocks";-->
+<!--width="200px";-->
+<!--align="left";-->
+<!--height="300px";-->
+<!--/>-->
+
+{% endblock%}
+
+</body>
+</html>
